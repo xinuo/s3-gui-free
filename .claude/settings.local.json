@@ -14,7 +14,8 @@
       "WebSearch",
       "mcp__web-reader__webReader",
       "Bash(cargo check:*)",
-      "Bash(git init:*)"
+      "Bash(git init:*)",
+      "Bash(git remote add:*)"
     ]
   }
 }
