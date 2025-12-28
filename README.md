@@ -1,107 +1,107 @@
 # S3 GUI
 
-一个使用 Tauri + React + TypeScript 开发的 S3 文件浏览器，支持完整的 S3 协议操作。
+An S3 file browser built with Tauri + React + TypeScript, supporting complete S3 protocol operations.
 
-## 功能特性
+## Features
 
-### 连接管理
-- 添加/编辑/删除 S3 连接配置
-- 支持 AWS S3 和兼容 S3 协议的服务（如 MinIO、阿里云 OSS、腾讯云 COS 等）
-- 本地安全存储连接信息
+### Connection Management
+- Add/Edit/Delete S3 connection configurations
+- Support for AWS S3 and S3-compatible services (MinIO, Alibaba Cloud OSS, Tencent Cloud COS, etc.)
+- Secure local storage of connection information
 
-### Bucket 管理
-- 列出所有 Buckets
-- 创建 Bucket（支持选择 Region）
-- 删除 Bucket
-- 快速打开 Bucket 进入文件浏览器
+### Bucket Management
+- List all Buckets
+- Create Bucket (with Region selection)
+- Delete Bucket
+- Quick open Bucket to enter file browser
 
-### 文件浏览与操作
-- **文件浏览**
-  - 浏览 Bucket 中的文件和文件夹
-  - 面包屑导航，支持快速返回上级目录
-  - 文件列表展示（名称、大小、修改时间、存储类型）
-  - 点击文件夹进入子目录
-  - 多选文件批量操作
+### File Browsing & Operations
+- **File Browsing**
+  - Browse files and folders in Buckets
+  - Breadcrumb navigation for quick return to parent directories
+  - File list display (name, size, last modified, storage class)
+  - Click folders to enter subdirectories
+  - Multi-select for batch operations
 
-- **文件操作**
-  - 重命名文件
-  - 复制文件
-  - 移动文件
-  - 删除文件/对象
-  - 多选批量下载
-  - 多选批量删除
+- **File Operations**
+  - Rename files
+  - Copy files
+  - Move files
+  - Delete files/objects
+  - Multi-select batch download
+  - Multi-select batch delete
 
-- **搜索与筛选**
-  - 实时文件名搜索
-  - 按文件大小排序
-  - 按修改时间排序
-  - 按存储类型筛选
+- **Search & Filter**
+  - Real-time filename search
+  - Sort by file size
+  - Sort by modification time
+  - Filter by storage class
 
-### 文件上传
-- 单文件上传
-- 批量上传
-- 拖拽上传
-- **大文件分片上传**（>5MB 自动使用分片上传）
-- 上传进度显示
+### File Upload
+- Single file upload
+- Batch upload
+- Drag & drop upload
+- **Multipart upload** (automatically enabled for files > 5MB)
+- Upload progress display
 
-### 文件下载
-- 单文件下载（选择保存位置）
-- 批量下载（选择目标目录）
-- 下载进度提示
+### File Download
+- Single file download (choose save location)
+- Batch download (select target directory)
+- Download progress indication
 
-### 文件预览
-- 图片文件预览（支持 jpg, png, gif, webp, svg 等）
-- 文本文件预览（支持 txt, md, json, xml, 代码文件等）
-- 文件信息展示
+### File Preview
+- Image file preview (supports jpg, png, gif, webp, svg, etc.)
+- Text file preview (supports txt, md, json, xml, code files, etc.)
+- File information display
 
-## 技术栈
+## Tech Stack
 
-### 前端
+### Frontend
 - React 19 + TypeScript
 - Vite
-- Ant Design 5（UI 组件库）
-- Zustand（状态管理）
-- Day.js（日期处理）
+- Ant Design 5 (UI component library)
+- Zustand (state management)
+- Day.js (date handling)
 
-### 后端
+### Backend
 - Rust
 - Tauri 2
-- AWS SDK for Rust（S3 客户端）
-- Tokio（异步运行时）
+- AWS SDK for Rust (S3 client)
+- Tokio (async runtime)
 
-## 开发环境要求
+## Development Requirements
 
-### 必需
-1. **Node.js** - 推荐 18.x 或更高版本
-2. **Rust** - Tauri 后端需要
+### Required
+1. **Node.js** - Version 18.x or higher recommended
+2. **Rust** - Required for Tauri backend
 
-### 安装 Rust
+### Install Rust
 
 ```bash
 # macOS/Linux
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # Windows
-# 下载并运行 rustup-init.exe: https://rustup.rs/
+# Download and run rustup-init.exe: https://rustup.rs/
 
-# 验证安装
+# Verify installation
 rustc --version
 cargo --version
 ```
 
-### Tauri 前置依赖
+### Tauri Prerequisites
 
-根据你的操作系统，需要安装相应的依赖：
+Depending on your operating system, you need to install the following dependencies:
 
 **macOS:**
 ```bash
-# 已包含在 Xcode Command Line Tools 中
+# Included in Xcode Command Line Tools
 xcode-select --install
 ```
 
 **Windows:**
-- 安装 [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
-- 安装 [WebView2](https://developer.microsoft.com/en-us/microsoft-edge/webview2/)
+- Install [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
+- Install [WebView2](https://developer.microsoft.com/en-us/microsoft-edge/webview2/)
 
 **Linux (Ubuntu/Debian):**
 ```bash
@@ -117,57 +117,57 @@ sudo apt install libwebkit2gtk-4.1-dev \
     librsvg2-dev
 ```
 
-## 安装和运行
+## Installation & Running
 
 ```bash
-# 安装依赖
+# Install dependencies
 npm install
 
-# 开发模式运行
+# Run in development mode
 npm run tauri dev
 
-# 构建生产版本
+# Build for production
 npm run build
 
-# 构建桌面应用
+# Build desktop application
 npm run tauri build
 ```
 
-## 打包发布
+## Packaging & Release
 
-运行 `npm run tauri build` 后，生成的安装包位于：
+After running `npm run tauri build`, the generated installation packages are located at:
 
 - **macOS**: `src-tauri/target/release/bundle/dmg/`
 - **Windows**: `src-tauri/target/release/bundle/msi/`
-- **Linux**: `src-tauri/target/release/bundle/deb/` 或 `appimage/`
+- **Linux**: `src-tauri/target/release/bundle/deb/` or `appimage/`
 
-## 项目结构
+## Project Structure
 
 ```
 s3-gui/
-├── src/                    # 前端源码
-│   ├── components/         # React 组件
-│   │   ├── UploadModal.tsx # 上传对话框
-│   │   └── FilePreview.tsx # 文件预览
-│   ├── pages/             # 页面组件
+├── src/                    # Frontend source code
+│   ├── components/         # React components
+│   │   ├── UploadModal.tsx # Upload dialog
+│   │   └── FilePreview.tsx # File preview
+│   ├── pages/             # Page components
 │   │   ├── ConnectionManager.tsx
 │   │   ├── BucketList.tsx
 │   │   └── FileBrowser.tsx
-│   ├── services/          # API 服务
+│   ├── services/          # API services
 │   │   └── s3.ts
-│   ├── store/             # Zustand 状态管理
-│   ├── types/             # TypeScript 类型
+│   ├── store/             # Zustand state management
+│   ├── types/             # TypeScript types
 │   ├── App.tsx
 │   └── main.tsx
-├── src-tauri/             # Rust 后端
+├── src-tauri/             # Rust backend
 │   ├── src/
-│   │   ├── commands/      # Tauri 命令
+│   │   ├── commands/      # Tauri commands
 │   │   │   ├── bucket.rs
 │   │   │   ├── object.rs
 │   │   │   ├── upload.rs
 │   │   │   ├── download.rs
 │   │   │   └── multipart.rs
-│   │   ├── s3/           # S3 客户端
+│   │   ├── s3/           # S3 client
 │   │   └── lib.rs
 │   ├── Cargo.toml
 │   └── tauri.conf.json
@@ -175,58 +175,58 @@ s3-gui/
 └── README.md
 ```
 
-## 使用说明
+## Usage Guide
 
-### 1. 添加连接配置
+### 1. Add Connection Configuration
 
-在"连接管理"页面添加 S3 连接：
-- **连接名称**: 自定义名称
-- **Access Key ID**: AWS 访问密钥 ID
-- **Secret Access Key**: AWS 访问密钥
-- **Region**: AWS 区域（如 us-east-1）
-- **Endpoint**: 可选，用于 S3 兼容服务
-- **Session Token**: 可选，临时凭证
+Add S3 connection in the "Connection Management" page:
+- **Connection Name**: Custom name
+- **Access Key ID**: AWS access key ID
+- **Secret Access Key**: AWS secret access key
+- **Region**: AWS region (e.g., us-east-1)
+- **Endpoint**: Optional, for S3-compatible services
+- **Session Token**: Optional, for temporary credentials
 
-### 2. 管理 Buckets
+### 2. Manage Buckets
 
-在"Bucket 列表"页面：
-- 查看所有 Buckets
-- 创建新 Bucket
-- 删除空 Bucket
-- 点击"打开"进入文件浏览器
+On the "Bucket List" page:
+- View all Buckets
+- Create new Bucket
+- Delete empty Bucket
+- Click "Open" to enter file browser
 
-### 3. 文件操作
+### 3. File Operations
 
-在"文件浏览器"页面：
-- **浏览**: 点击文件夹进入，使用面包屑返回
-- **上传**: 点击"上传文件"按钮
-- **下载**: 单文件下载或批量下载
-- **重命名/复制/移动**: 通过更多操作菜单
-- **删除**: 单文件删除或批量删除
-- **搜索**: 顶部搜索框实时搜索文件名
-- **排序/筛选**: 点击列标题排序，使用存储类型筛选
+In the "File Browser" page:
+- **Browse**: Click folders to enter, use breadcrumbs to return
+- **Upload**: Click "Upload File" button
+- **Download**: Single file download or batch download
+- **Rename/Copy/Move**: Through the more actions menu
+- **Delete**: Single file delete or batch delete
+- **Search**: Real-time filename search in top search box
+- **Sort/Filter**: Click column headers to sort, use storage class filter
 
-### 4. 大文件上传
+### 4. Large File Upload
 
-超过 5MB 的文件将自动使用分片上传，确保大文件稳定传输。
+Files larger than 5MB will automatically use multipart upload to ensure stable transmission.
 
-## 待实现功能
+## Roadmap
 
-- 预签名 URL 生成（临时分享链接）
-- 断点续传
-- 上传/下载队列管理
-- 更多文件类型预览（视频、音频）
-- 文件加密传输
-- 操作历史记录
+- Presigned URL generation (temporary sharing links)
+- Resumable upload/download
+- Upload/Download queue management
+- More file type previews (video, audio)
+- Encrypted file transfer
+- Operation history
 
-## 开发进度
+## Development Progress
 
-查看 [TODO.md](./TODO.md) 了解完整的开发计划。
+See [TODO.md](./TODO.md) for the complete development plan.
 
-## 许可证
+## License
 
 MIT License
 
-## 贡献
+## Contributing
 
-欢迎提交 Issue 和 Pull Request！
+Issues and Pull Requests are welcome!
