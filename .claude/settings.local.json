@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat:*)",
+      "Bash(npm create tauri-app@latest:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run tauri dev:*)",
+      "Bash(lsof:*)",
+      "Bash(xargs kill:*)",
+      "Bash(cargo clean:*)",
+      "Bash(cargo build:*)",
+      "mcp__context7__resolve-library-id",
+      "WebSearch",
+      "mcp__web-reader__webReader",
+      "Bash(cargo check:*)",
+      "Bash(git init:*)"
+    ]
+  }
+}

@@ -1,0 +1,43 @@
+[package]
+name = "s3-gui"
+version = "0.1.0"
+description = "A S3 File Browser built with Tauri"
+authors = ["you"]
+edition = "2021"
+
+[lib]
+name = "s3_gui_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["devtools"] }
+tauri-plugin-opener = "2"
+tauri-plugin-dialog = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# AWS SDK for S3
+aws-config = { version = "1.5", features = ["behavior-version-latest"] }
+aws-sdk-s3 = { version = "1.63", features = ["behavior-version-latest"] }
+aws-credential-types = "1.2"
+
+# Async runtime
+tokio = { version = "1", features = ["full"] }
+
+# Error handling
+anyhow = "1"
+thiserror = "2"
+
+# Utilities
+uuid = { version = "1", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+mime_guess = "2"
+
+# Encryption
+aes-gcm = "0.10"
+base64 = "0.22"
+sha2 = "0.10"
+
